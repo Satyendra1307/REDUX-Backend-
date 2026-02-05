@@ -1,56 +1,3 @@
-// const express=require('express')
-
-// const app=express()
-
-// require("./db/Connection.js")
-
-// const port=9000
-
-// const products=require("./Model/model.js")
-
-// const data=require("./Default/Default.js")
-
-// data()
-
-// const cors = require('cors')
-
-// app.use(express.json())
-// app.use(cors())
-
-
-// app.get('/',(req,res)=>{
-
-//     res.send("hello world")
-
-// })
-
-
-
-// app.get("/getProducts",async(req,res)=>{
-
-//     try{
-
-//         const data = await products.find({})
-
-//         res.json(data)
-
-//     }catch(err){
-
-//         res.json(err)
-
-//     }
-
-// })
-
-
-
-// app.listen(port,()=>{
-
-//     console.log(`example app listing on port ${port}`)
-
-
-// })
-
 const express=require('express')
 const app=express()
 require('./db/Connection.js')
@@ -59,7 +6,8 @@ const data=require('./Default/Default.js')
 const cors=require('cors')
 app.use(express.json())
 app.use(cors())
-
+const Routes = require('./Routes/Route.js')
+app.use("/api", Routes);
 const port=9000
 
 data()
@@ -118,5 +66,4 @@ app.listen(port,()=>{
 
 })
 
-
-
+module.exports={}
