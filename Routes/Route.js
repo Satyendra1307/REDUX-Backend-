@@ -1,26 +1,16 @@
-const express = require('express');
-const products = require('../Model/model.js');
+const express = require('express')
+
+const {saveUser,loginUser} = require('../controllers/userController.js');
+const{get,add,update,deleteP} = require('../controllers/adminController.js')
 
 const router = express.Router();
-const {
-  saveUser,
-  loginUser,
-} = require("../controllers/userController.js");
-// SIGNUP
 router.post("/signup", saveUser);
-
-// LOGIN
 router.post("/login", loginUser);
 
-// Get all products
-router.get('/getProducts', async (req, res) => {
-    try {
-        const data = await products.find();
-        res.json(data);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+router.get("/get",get)
+router.post('/add',add)
+router.put('/update/:id',update)
+router.delete('/delete/:id',deleteP)
 
 module.exports = router;
 

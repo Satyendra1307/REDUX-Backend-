@@ -1,16 +1,16 @@
-const products = require("../Model/model.js");
-const Data = require("../api.js");
+const products = require('../model/Productmodel')
+const Data = require('../Api')
 
-const data = async () => {
-  try {
-    await products.deleteMany({});
-    console.log("Old products removed");
+const data = async()=>{
+    try{
+        await products.deleteMany({});
+        console.log("Old products removed");
 
-    await products.insertMany(Data);
-    console.log("New products inserted");
-  } catch (error) {
-    console.log("Default Data Error:", error.message);
-  }
-};
+        await products.insertMany(Data);
+        console.log("New products inserted");
 
+    }catch(error){
+        console.log("Default Data Error:", error.message);
+    }
+}
 module.exports = data;
